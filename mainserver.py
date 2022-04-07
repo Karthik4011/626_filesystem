@@ -1,7 +1,7 @@
 from socket import socket
 import socketserver
 
-HOST, PORT = "10.211.55.6", 60000
+HOST, PORT = "10.200.79.230", 60000
 
 serverList = []
 global lockedFileslist

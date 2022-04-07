@@ -20,7 +20,7 @@ is_directory = ["D", "DIRECTORY", "d", "directory"]
 currentDirectory = ""
 
 # MainServer details
-MAINSERVERHOST, MAINSERVERPORT = "10.211.55.6", 60000
+MAINSERVERHOST, MAINSERVERPORT = "10.200.79.230", 60000
 
 
 # Prompts user for a server IP
@@ -282,19 +282,19 @@ def change_owner(ftp, childServ):
 def help(ftp):
     print("============================\n",
           "\nCurrent Path: " + ftp.pwd() + "\n\n",
-          "\t'q' == Quit SEDFS\n",
-          "\t'r' == Read SEDFS file\n",
+          "\t'q' == Quit SEDFS",
+          "\t\t'r' == Read SEDFS file",
           "\t'w' == Write to SEDFS\n",
-          "\t'p' == Change permissions\n",
-          "\t'c' == Create new SEDFS file/directory\n",
-          "\t'n' == Navigate to new directory\n",
-          "\t'b' == Move back 1 directory\n",
+          #"\t'p' == Change permissions\n",
+          "\t'c' == Create new file/directory",
+          "'n' == Navigate to new directory\n",
+          "\t'b' == Move back 1 directory",
           "\t'l' == List directory contents contents\n",
-          "\t'd' == Delete file/directory\n",
+          "\t'd' == Delete file/directory",
           "\t's' == Display Server Information\n",
-          "\t'o' == Open Text Editor\n",
-          "\t'k' == Change Owner\n",
-          "\t'u' == Rename File\n",
+          #"\t'o' == Open Text Editor\n",
+          #"\t'k' == Change Owner\n",
+          "\t'u' == Rename File",
           "\t'h' == Help\n")
 
 
@@ -454,7 +454,6 @@ if __name__ == '__main__':
         currentDirectory = ftp.pwd()
 
         while 1:
-            # print("%s >> " % currentDirectory, end='')
             print("\n****** Current Directory : %s *******\n" % ftp.pwd())
             print("Enter a command to perform operation or type 'h' to see the menu >> ", end='')
             clientRequest = input().lower()

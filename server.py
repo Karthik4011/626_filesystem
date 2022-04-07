@@ -39,6 +39,8 @@ listOfNo = ["no", "n", "NO", "N"]
 # MainServer details
 MAINSERVERHOST, MAINSEREVERPORT = "10.211.55.6", 60000
 
+MAINSERVERHOST = input("ENTER MAINSERVER IP ADDRESS \n>>")
+
 
 class SEDFS_server(FTPServer):
 
@@ -82,6 +84,7 @@ def load_users(authorizer):
         # Receive users data from the server and shut down
         received = str(sock.recv(1024), "utf-8")
     lists = received.split(";")
+    print(lists)
     try:
         file = open("configuration files/userConfig.txt", mode='r')
     except:
