@@ -555,7 +555,7 @@ def createPermission(flag, filename, owner, user=NULL):
         data = received
         return str(data)
 
-def getPermission(filename):
+def getPermission(filename, username):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.connect((MAINSERVERHOST, MAINSERVERPORT))
         data = {"type":"getPermissions", "filename":filename}      
@@ -564,4 +564,10 @@ def getPermission(filename):
         received = sock.recv(1024)
     data = received.decode('utf-8')
     dat = json.loads(data)
-    return dat
+    print(username)
+    if username == dat['owner']:
+        return "owner"
+    elif username in dat['users']:
+        return dat['users'][username]
+    else:
+        return False
